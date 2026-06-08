@@ -39,7 +39,7 @@ jobs:
 
     # 5. Populate local vendor dependencies (including development stack)
     - name: Install Dependencies
-      run: poetry install
+      run: poetry install --no-root
 
     # 6. Execute your exact local verification tool suite
     - name: Run Unified Validation Check Pipeline

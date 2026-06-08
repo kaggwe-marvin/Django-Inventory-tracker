@@ -34,7 +34,7 @@ jobs:
     # 4. Bootstrap toolchain engine packaging controls
     - name: Install Poetry
       run: |
-        curl -sSL https://python-poetry.org | python3 -
+        curl -sSL https://install.python-poetry.org | python3 -
         echo "$HOME/.local/bin" >> $GITHUB_PATH
 
     # 5. Populate local vendor dependencies (including development stack)

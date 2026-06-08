@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Knowledge Bank</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+        .bookmark { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .title { font-size: 1.2rem; font-weight: bold; color: #0066cc; text-decoration: none; }
+        .tag { background: #f0f0f0; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; margin-right: 5px; color: #555; }
+        .meta { color: #666; font-size: 0.9rem; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🔖 Personal Knowledge Bank</h1>
+    <!-- Place this just below your <h1> header -->
+<p><a href="{% url 'bookmarks:create' %}" style="text-decoration: none; background: #0066cc; color: white; padding: 8px 12px; border-radius: 4px;">+ Add New Link</a></p>
+
+    <hr>
+    
+    {% for bookmark in bookmarks %}
+        <div class="bookmark">
+            <a href="{{ bookmark.url }}" class="title" target="_blank">{{ bookmark.title }}</a>
+            <div class="meta">
+                {% for tag in bookmark.tags.all %}
+                    <span class="tag">#{{ tag.name }}</span>
+                {% endfor %}
+                <span>• Added on {{ bookmark.created_at|date:"Y-m-d" }}</span>
+            </div>
+            {% if bookmark.description %}
+                <p>{{ bookmark.description }}</p>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p>No bookmarks tracked yet. Add some in your database!</p>
+    {% endfor %}
+</body>
+</html>

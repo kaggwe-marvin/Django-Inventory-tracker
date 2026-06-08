@@ -1,15 +1,17 @@
 [project]
 name = "personal-knowledge-bank"
 version = "0.1.0"
-description = ""
+description = "Inventory system with Authentication and Authourization"
 authors = [
-    {name = "Your Name",email = "you@example.com"}
+    {name = "kaggwe-marvin",email = "129196464+kaggwe-marvin@users.noreply.github.com"}
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.12,<4.0"
 dependencies = [
     "django (>=6.0.6,<7.0.0)",
     "djangorestframework (>=3.17.1,<4.0.0)",
-    "django-redis (>=7.0.0,<8.0.0)"
+    "django-redis (>=7.0.0,<8.0.0)",
+    "django-environ (>=0.13.0,<0.14.0)",
+    "python-dotenv (>=1.2.2,<2.0.0)"
 ]
 
 
